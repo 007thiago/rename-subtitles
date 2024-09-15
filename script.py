@@ -1,7 +1,8 @@
 import os
 from pathlib import Path
 atual=os.getcwd()
-arquivos=list(Path(atual).glob('*mp4'))
+extensao=input('Formato de vídeo: ')
+arquivos=list(Path(atual).glob(f'*.{extensao}'))
 i=1
 if (len(arquivos)==0):
     print('Não existem arquivos')
@@ -22,7 +23,7 @@ else:
             a=a.split('\\')
             ext1='srt'
             ext2='mp4'
-            arquivos=list(Path(atual).glob('*mp4'))
+            arquivos=list(Path(atual).glob(f'*.{extensao}'))
             break
 for x in a:
     if 'mp4' in x:
