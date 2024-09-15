@@ -1,37 +1,37 @@
 import os
 from pathlib import Path
-atual=os.getcwd()
-extensao=input('Formato de vídeo: ')
-arquivos=list(Path(atual).glob(f'*.{extensao}'))
+current=os.getcwd()
+video_format=input('Formato de vídeo: ')
+files=list(Path(current).glob(f'*.{video_format}'))
 i=1
-if (len(arquivos)==0):
+if (len(files)==0):
     print('Não existem arquivos')
 else:
-    for arq in arquivos:
-        if 'E01' in str(arq):
-            a=str(arq)
+    for file in files:
+        if 'E01' in str(file):
+            a=str(file)
             a=a.split('\\')
             ext1='mp4'
             ext2='srt'
-            arquivos=list(Path(atual).glob('*srt'))
+            files=list(Path(current).glob('*srt'))
             break
         else:
-            arquivos=list(Path(atual).glob('*srt'))
-    for arq in arquivos:
-        if 'E01' in str(arq):
-            a=str(arq)
+            files=list(Path(current).glob('*srt'))
+    for file in files:
+        if 'E01' in str(file):
+            a=str(file)
             a=a.split('\\')
             ext1='srt'
             ext2='mp4'
-            arquivos=list(Path(atual).glob(f'*.{extensao}'))
+            files=list(Path(current).glob(f'*.{video_format}'))
             break
 for x in a:
-    if 'mp4' in x:
+    if (f'{video_format}') in x:
         a=x
     elif 'srt' in x:
         a=x        
-for arq in arquivos:
-    titulo=a.replace('E01',f'E{str(i).zfill(2)}')
-    titulo=titulo.replace(ext1,ext2)
-    os.rename(arq,titulo)
+for file in files:
+    title=a.replace('E01',f'E{str(i).zfill(2)}')
+    title=title.replace(ext1,ext2)
+    os.rename(file,title)
     i+=1
