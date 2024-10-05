@@ -9,6 +9,7 @@ if (len(files)==0):
     print('Não existem arquivos.')
 else:
     a=str(files1[0]).split('\\')
+    a=a[len(a)-1]
     if 'E01' in str(files1[0]):
         ext1=video_format
         ext2='srt'
@@ -17,9 +18,6 @@ else:
         ext2=video_format
     else:
         print('Não existe padrão sequencial nos títulos.')
-for x in a:
-    if ((f'{video_format}') in x) or ('srt' in x):
-        a=x
 for file in files:
     title=a.replace('E01',f'E{str(i).zfill(2)}')
     title=title.replace(ext1,ext2)
