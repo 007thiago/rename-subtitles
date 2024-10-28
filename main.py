@@ -8,7 +8,7 @@ def renameAll(files1, files2, files3, subs,video):
     a=str(files1[0]).split('\\')
     a='E01_' + a[len(a)-1]
     for file in files3:
-        #If all subtitles files are already renamed, then counter resets in order to iterate through video files, and the source extension is now subtitle (subtitle -> video file)
+        #If all subtitles files are already renamed, then counter resets in order to iterate through video files, and the source extension is now subtitle
         if (i==(s+1)):
             i=1
             ext1=subs
